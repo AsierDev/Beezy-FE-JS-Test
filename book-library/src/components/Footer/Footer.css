@@ -1,0 +1,8 @@
+.footer {
+    background-color: #363636;
+    margin-top: 10rem
+}
+
+.footer a:hover {
+    color: white
+}

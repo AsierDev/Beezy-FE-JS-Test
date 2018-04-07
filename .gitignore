@@ -1,19 +1,5 @@
 # Created by https://www.gitignore.io/api/linux,archlinuxpackages
 
-### ArchLinuxPackages ###
-*.tar
-*.tar.*
-*.jar
-*.exe
-*.msi
-*.zip
-*.tgz
-*.log
-*.log.*
-*.sig
-
-pkg/
-src/
 
 ### Linux ###
 *~

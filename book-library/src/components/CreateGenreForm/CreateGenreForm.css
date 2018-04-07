@@ -1,0 +1,13 @@
+.create-genre {
+    background: rgb(199, 199, 199);
+    padding: 5rem 0
+}
+
+.button-create button, .create-genre input {
+
+    border-radius: 10px
+}
+
+.button-create {
+    margin: 1rem 0
+}

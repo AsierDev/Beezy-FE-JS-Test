@@ -1,0 +1,11 @@
+.navbar-menu {
+  background: #363636;
+}
+.navbar-end a:hover{
+  background: #00D1B2;
+
+}
+
+.navbar {
+  padding: 1rem;
+}
