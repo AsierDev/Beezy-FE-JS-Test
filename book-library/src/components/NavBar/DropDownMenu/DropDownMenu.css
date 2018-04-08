@@ -1,0 +1,9 @@
+.dropdown, .dropdown button, .dropdown trigger  {
+  background: transparent;
+  border-color: transparent;
+  align-self: center;
+}
+
+.dropdownTitle {
+  color: white
+}

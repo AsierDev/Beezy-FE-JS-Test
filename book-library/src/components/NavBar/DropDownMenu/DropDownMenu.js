@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { withRouter } from "react-router-dom"
+/* import { withRouter } from "react-router-dom" */
 
-//import './DropDownMenu.css'
+import './DropDownMenu.css'
 
 
 class DropDownMenu extends Component {
@@ -14,190 +14,156 @@ class DropDownMenu extends Component {
         }
     }
 
-    handleClick = value => {
-
-        this.props.history.push(`/category/${value}`)
-
-    }
+   
 
     render() {
         return (
 
 
-            <div className="column is-3 has-text-left">
-                <section className="hero is-primary">
-                    <div className="hero-body" id="categories">
-                        <h2 className="title is-4">
-                            Géneros
-                        </h2>
+            <div className="dropdown is-hoverable">
+                <div className="dropdown-trigger">
+                    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu4">
+                        <span className="dropdownTitle"> Filter by Genre </span>
+                        <span className="icon is-small">
+                            <i className="fa fa-angle-down dropdownTitle" aria-hidden="true" />
+                        </span>
+                    </button>
+                </div>
+                <div className="dropdown-menu" id="dropdown-menu4" role="menu">
+                    <div className="dropdown-content">
+                        <div className="dropdown-item">
+
+                            <ul className="menu-list is-size-5-desktop has-text-weight-normal">
+                                <li>
+                                    <a className=""
+                                        data="history"
+                                        onClick={e => {
+                                            e.preventDefault()
+                                            this.handleClick((e.target.getAttribute('data')))
+
+                                        }}
+                                    >Historia
+                                                        </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        data="science"
+                                        onClick={e => {
+                                            e.preventDefault()
+                                            this.handleClick((e.target.getAttribute('data')))
+                                        }}
+                                    >Ciencia
+                                                        </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        data="fiction"
+                                        onClick={e => {
+                                            e.preventDefault()
+                                            this.handleClick((e.target.getAttribute('data')))
+                                        }}
+                                    >Ficción
+                                                        </a>
+                                </li>
+                                <li>
+                                    <a
+                                        data="fantasy"
+                                        onClick={e => {
+                                            e.preventDefault()
+                                            this.handleClick((e.target.getAttribute('data')))
+                                        }}
+                                    >Fantasía
+                                                        </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        data="philosophy"
+                                        onClick={e => {
+                                            e.preventDefault()
+                                            this.handleClick((e.target.getAttribute('data')))
+                                        }}
+                                    >Filosofía
+                                                        </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        data="psychology"
+                                        onClick={e => {
+                                            e.preventDefault()
+                                            this.handleClick((e.target.getAttribute('data')))
+                                        }}
+                                    >Psicología
+                                                            </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        data="biography"
+                                        onClick={e => {
+                                            e.preventDefault()
+                                            this.handleClick((e.target.getAttribute('data')))
+                                        }}
+                                    >Biografías
+                                                        </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        data="essay"
+                                        onClick={e => {
+                                            e.preventDefault()
+                                            this.handleClick((e.target.getAttribute('data')))
+                                        }}
+                                    >Ensayos
+                                                         </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        data="education"
+                                        onClick={e => {
+                                            e.preventDefault()
+                                            this.handleClick((e.target.getAttribute('data')))
+                                        }}
+                                    >Educación
+                                                            </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        data="sports"
+                                        onClick={e => {
+                                            e.preventDefault()
+                                            this.handleClick((e.target.getAttribute('data')))
+                                        }}
+                                    >Deportes
+                                                        </a>
+                                </li>
+
+                                <li>
+                                    <a
+                                        data="self-help"
+                                        onClick={e => {
+                                            e.preventDefault()
+                                            this.handleClick((e.target.getAttribute('data')))
+                                        }}
+                                    >Autoayuda
+                                                        </a>
+                                </li>
+
+                            </ul>
+
+
+                        </div>
                     </div>
-                </section>
-                <aside className="menu">
-                    <ul className="menu-list is-size-5-desktop has-text-weight-normal">
-                        <li>
-                            <a className=""
-                                data="history"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-
-                                }}
-                            >Historia
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                data="science"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Ciencia
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                data="fiction"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Ficción
-                            </a>
-                        </li>
-                        <li>
-                            <a
-                                data="fantasy"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Fantasía
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                data="philosophy"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Filosofía
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                data="psychology"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Psicología
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                data="biography"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Biografías
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                data="essay"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Ensayos
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                data="education"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Educación
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                data="travel"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Viajes
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                data="sports"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Deportes
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                data="self-help"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Autoayuda
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                data="health"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Salud
-                            </a>
-                        </li>
-
-                        <li>
-                            <a
-                                data="cooking"
-                                onClick={e => {
-                                    e.preventDefault()
-                                    this.handleClick((e.target.getAttribute('data')))
-                                }}
-                            >Cocina
-                            </a>
-                        </li>
-
-                    </ul>
-
-                </aside>
-
+                </div>
             </div>
-
-
-
         )
     }
 }
 
-export default withRouter(DropDownMenu)
+export default DropDownMenu

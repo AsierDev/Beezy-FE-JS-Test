@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import DropDownMenu from './DropDownMenu/DropDownMenu'
+
+import { withRouter } from "react-router-dom"
 
 
 import './NavBar.css'
@@ -16,7 +19,11 @@ class NavBar extends Component {
         }
     }
 
+    handleClick = value => {
 
+        this.props.history.push(`/${value}`)
+
+    }
   
     toggleBurger = () => {
         this.setState({ burger: !this.state.burger })
@@ -27,7 +34,7 @@ class NavBar extends Component {
             <nav className="navbar is-dark ">
                 <div className="container">
                     <div className="navbar-brand logoNav " >
-                        <a className="navbar-item dropdownTitle is-size-4 " href="#/browse">
+                        <a className="navbar-item dropdownTitle is-size-4 " href="#/">
                             My Library
                         </a>
 
@@ -48,8 +55,29 @@ class NavBar extends Component {
 
                     <div className={this.state.burger ? "navbar-menu has-text-centered is-active" : "navbar-menu has-text-centered "} >
                         <div className="navbar-end ">
-                            <a className="navbar-item has-text-white"> Books </a>
-                            <a className="navbar-item has-text-white"> Genres </a>
+                            <a
+                            data="book"
+                            onClick={e => {
+                                e.preventDefault()
+                                this.handleClick((e.target.getAttribute('data')))
+
+                            }} 
+                            className="navbar-item has-text-white"
+                            > Create Book     
+                            </a>
+
+                            <a
+                            data="genre"
+                            onClick={e => {
+                                e.preventDefault()
+                                this.handleClick((e.target.getAttribute('data')))
+
+                            }}  
+                            className="navbar-item has-text-white"
+                            > Create Genre 
+                            </a>
+
+                            <DropDownMenu className="navbar-item has-text-white"/>
 
 
                         </div>
@@ -60,4 +88,4 @@ class NavBar extends Component {
     }
 }
 
-export default NavBar
+export default withRouter(NavBar)
