@@ -24,7 +24,7 @@ class NavBar extends Component {
         this.props.history.push(`/${value}`)
 
     }
-  
+
     toggleBurger = () => {
         this.setState({ burger: !this.state.burger })
     }
@@ -34,18 +34,22 @@ class NavBar extends Component {
             <nav className="navbar is-dark ">
                 <div className="container">
                     <div className="navbar-brand logoNav " >
-                        <a className="navbar-item dropdownTitle is-size-4 " href="#/">
+                        <a
+                            className="navbar-item dropdownTitle is-size-4 "
+                            href="#/"
+                        >
                             My Library
                         </a>
 
                         <span
                             className="navbar-burger burger has-text-light"
                             data-target="navbarMenuHeroA"
-                            onClick={
-                                e => {
-                                    e.preventDefault()
-                                    this.toggleBurger()
-                                }}>
+                            onClick={e => {
+                                e.preventDefault()
+                                this.toggleBurger()
+                            }}
+                        >
+
                             <span />
                             <span />
                             <span />
@@ -56,28 +60,30 @@ class NavBar extends Component {
                     <div className={this.state.burger ? "navbar-menu has-text-centered is-active" : "navbar-menu has-text-centered "} >
                         <div className="navbar-end ">
                             <a
-                            data="book"
-                            onClick={e => {
-                                e.preventDefault()
-                                this.handleClick((e.target.getAttribute('data')))
+                                data="book"
+                                onClick={e => {
+                                    e.preventDefault()
+                                    this.handleClick((e.target.getAttribute('data')))
 
-                            }} 
-                            className="navbar-item has-text-white"
-                            > Create Book     
+                                }}
+                                className="navbar-item has-text-white"
+                            >
+                                Create Book
                             </a>
 
                             <a
-                            data="genre"
-                            onClick={e => {
-                                e.preventDefault()
-                                this.handleClick((e.target.getAttribute('data')))
+                                data="genre"
+                                onClick={e => {
+                                    e.preventDefault()
+                                    this.handleClick((e.target.getAttribute('data')))
 
-                            }}  
-                            className="navbar-item has-text-white"
-                            > Create Genre 
+                                }}
+                                className="navbar-item has-text-white"
+                            >
+                                Create Genre
                             </a>
 
-                            <DropDownMenu className="navbar-item has-text-white"/>
+                            <DropDownMenu className="navbar-item has-text-white" />
 
 
                         </div>

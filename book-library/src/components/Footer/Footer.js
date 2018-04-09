@@ -4,9 +4,6 @@ import './Footer.css'
 
 class Footer extends Component {
 
-  
-
-
     render() {
         return (
             <footer className="footer is-dark">
@@ -15,7 +12,14 @@ class Footer extends Component {
                         <div>
                             <span className="is-size-5 has-text-light">
                             
-                                <a href="https://github.com/AsierDev" target="_blank" rel="noopener noreferrer" alt="social icons"> Made by Asier </a>
+                                <a 
+                                    href="https://github.com/AsierDev" 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    alt="social icons"
+                                > 
+                                    Made by Asier 
+                                </a>
                              
                             </span>
 

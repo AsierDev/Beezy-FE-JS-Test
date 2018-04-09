@@ -22,14 +22,28 @@ class DropDownMenu extends Component {
 
             <div className="dropdown is-hoverable">
                 <div className="dropdown-trigger">
-                    <button className="button" aria-haspopup="true" aria-controls="dropdown-menu4">
-                        <span className="dropdownTitle"> Filter by Genre </span>
+                    <button 
+                        className="button" 
+                        aria-haspopup="true" 
+                        aria-controls="dropdown-menu4"
+                    >
+                        <span className="dropdownTitle"> 
+                            Filter by Genre 
+                        </span>
                         <span className="icon is-small">
-                            <i className="fa fa-angle-down dropdownTitle" aria-hidden="true" />
+                            <i 
+                                className="fa fa-angle-down dropdownTitle" 
+                                aria-hidden="true" 
+                            />
                         </span>
                     </button>
                 </div>
-                <div className="dropdown-menu" id="dropdown-menu4" role="menu">
+
+                <div 
+                    className="dropdown-menu" 
+                    id="dropdown-menu4" 
+                    role="menu"
+                >
                     <div className="dropdown-content">
                         <div className="dropdown-item">
 
@@ -42,8 +56,9 @@ class DropDownMenu extends Component {
                                             this.handleClick((e.target.getAttribute('data')))
 
                                         }}
-                                    >Historia
-                                                        </a>
+                                    >
+                                        Historia
+                                    </a>
                                 </li>
 
                                 <li>
@@ -53,8 +68,9 @@ class DropDownMenu extends Component {
                                             e.preventDefault()
                                             this.handleClick((e.target.getAttribute('data')))
                                         }}
-                                    >Ciencia
-                                                        </a>
+                                    >
+                                        Ciencia
+                                    </a>
                                 </li>
 
                                 <li>
@@ -64,8 +80,9 @@ class DropDownMenu extends Component {
                                             e.preventDefault()
                                             this.handleClick((e.target.getAttribute('data')))
                                         }}
-                                    >Ficción
-                                                        </a>
+                                    >
+                                        Ficción
+                                    </a>
                                 </li>
                                 <li>
                                     <a
@@ -74,8 +91,9 @@ class DropDownMenu extends Component {
                                             e.preventDefault()
                                             this.handleClick((e.target.getAttribute('data')))
                                         }}
-                                    >Fantasía
-                                                        </a>
+                                    >
+                                        Fantasía
+                                    </a>
                                 </li>
 
                                 <li>
@@ -85,75 +103,12 @@ class DropDownMenu extends Component {
                                             e.preventDefault()
                                             this.handleClick((e.target.getAttribute('data')))
                                         }}
-                                    >Filosofía
-                                                        </a>
+                                    >
+                                        Filosofía
+                                    </a>
                                 </li>
 
-                                <li>
-                                    <a
-                                        data="psychology"
-                                        onClick={e => {
-                                            e.preventDefault()
-                                            this.handleClick((e.target.getAttribute('data')))
-                                        }}
-                                    >Psicología
-                                                            </a>
-                                </li>
-
-                                <li>
-                                    <a
-                                        data="biography"
-                                        onClick={e => {
-                                            e.preventDefault()
-                                            this.handleClick((e.target.getAttribute('data')))
-                                        }}
-                                    >Biografías
-                                                        </a>
-                                </li>
-
-                                <li>
-                                    <a
-                                        data="essay"
-                                        onClick={e => {
-                                            e.preventDefault()
-                                            this.handleClick((e.target.getAttribute('data')))
-                                        }}
-                                    >Ensayos
-                                                         </a>
-                                </li>
-
-                                <li>
-                                    <a
-                                        data="education"
-                                        onClick={e => {
-                                            e.preventDefault()
-                                            this.handleClick((e.target.getAttribute('data')))
-                                        }}
-                                    >Educación
-                                                            </a>
-                                </li>
-
-                                <li>
-                                    <a
-                                        data="sports"
-                                        onClick={e => {
-                                            e.preventDefault()
-                                            this.handleClick((e.target.getAttribute('data')))
-                                        }}
-                                    >Deportes
-                                                        </a>
-                                </li>
-
-                                <li>
-                                    <a
-                                        data="self-help"
-                                        onClick={e => {
-                                            e.preventDefault()
-                                            this.handleClick((e.target.getAttribute('data')))
-                                        }}
-                                    >Autoayuda
-                                                        </a>
-                                </li>
+                               
 
                             </ul>
 
