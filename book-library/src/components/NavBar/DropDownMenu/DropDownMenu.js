@@ -20,7 +20,7 @@ class DropDownMenu extends Component {
         return (
 
 
-            <div className="dropdown is-hoverable">
+            <div className="dropdown is-hoverable is-right">
                 <div className="dropdown-trigger">
                     <button 
                         className="button" 

@@ -4,3 +4,20 @@
     padding: 2rem 0;
     min-height: 50rem
 }
+
+.card-content {
+    min-height: 220px
+}
+
+.card-content .title {
+    padding-bottom: 15px
+}
+
+.card-content .price {
+    margin-bottom: auto;
+    margin-top: auto
+}
+
+.card {
+    margin: 0 1rem
+}
