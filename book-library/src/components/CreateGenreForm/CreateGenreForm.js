@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Button from './../Button/Button'
 
 import './CreateGenreForm.css'
 
@@ -59,11 +59,8 @@ class CreateGenreForm extends Component {
 
                 </div>
 
-                <div className="control columns is-centered button-create is-mobile">
-                    <button className="button is-primary is-medium">
-                        Create
-                    </button>
-                </div>
+                <Button />
+                
 
             </form>
         )

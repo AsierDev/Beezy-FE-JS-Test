@@ -1,52 +1,24 @@
-const libraryData = {
+const books = require('./books')
 
-/*     book: class Book {
-        constructor(title, genre, price) {
-            this.title = title,
-            this.genre = genre,
-            this.price = price
-        }
+module.exports = {
+
+    retrieveBooks() {
+        
+        return books.bookshelf
+
     },
 
-    genre: class Genre {
-        constructor(name) {
-            this.name = name
-        }
+    createBook(title, genre, price) {
+        return books.addBook(title, genre, price)
     },
 
-    defaultBooks: [
-        {
-            title: 'Clean Code',
-            genre: 'Development',
-            price: '23'
-        },
-    ] */
+    removeBook(title) {
+        return books.deleteBook(title)
+    },
 
-    
-}
-
-const books = [
-    {
-        "title": "Clean Code",
-        "genre": "Development",
-        "price": 23
-    },
-    {
-        "title": "The First Man in Rome",
-        "genre": "Historical",
-        "price": 34
-    },
-    {
-        "title": "Cosmos",
-        "genre": "Science",
-        "price": 27
-    },
-    {
-        "title": "Lord Of The Rings",
-        "genre": "Fantasy",
-        "price": 18
+    updateBook(title, genre, price) {
+        return books.editBook(title, genre, price)
     }
-]
 
 
-export default  {books, libraryData};
+}

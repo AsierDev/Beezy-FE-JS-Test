@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import { withRouter } from "react-router-dom"
 import Button from './../Button/Button'
-import './CreateBookForm.css'
+import './UpdateBook.css'
 import booksApi from './../api/index'
 
 
 
-class CreateBookForm extends Component {
+class UpdateBook extends Component {
 
     constructor() {
         super()
@@ -123,4 +123,4 @@ class CreateBookForm extends Component {
     }
 }
 
-export default withRouter(CreateBookForm)
+export default withRouter(UpdateBook)
