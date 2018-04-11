@@ -2,16 +2,17 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom"
 import booksApi from './../../api/index'
 
-import './DropDownMenu.css'
+import './FilterGenres.css'
 
 
-class DropDownMenu extends Component {
+class FilterGenres extends Component {
 
     constructor() {
         super()
 
         this.state = {
-            genres: []
+            genres: [],
+            genre: "no filters"
         }
     }
 
@@ -23,13 +24,19 @@ class DropDownMenu extends Component {
 
     }
 
-    handleClick = genre => {
-        this.props.onHandleClick(genre)
+    handleClick = _genre => {
+        this.props.onHandleClick(_genre)
+        this.setState({
+            genre: _genre
+        })
         
     }
 
     noFilters = () => {
         this.props.onNoFilters()
+        this.setState({
+            genre: "no filters"
+        })
     }
 
     render() {
@@ -38,7 +45,7 @@ class DropDownMenu extends Component {
         console.log(genres)
         return (
 
-            <div className="dropdown is-hoverable is-right">
+            <div className="dropdown is-hoverable">
                 <div className="dropdown-trigger">
                     <button
                         className="button"
@@ -46,7 +53,7 @@ class DropDownMenu extends Component {
                         aria-controls="dropdown-menu4"
                     >
                         <span className="dropdownTitle">
-                            Filter by Genre
+                            {this.state.genre}
                         </span>
                         <span className="icon is-small">
                             <i
@@ -59,11 +66,10 @@ class DropDownMenu extends Component {
 
                 <div
                     className="dropdown-menu"
-                    id="dropdown-menu4"
                     role="menu"
                 >
                     <div className="dropdown-content">
-                        <div className="dropdown-item">
+                        <div className="dropdown-item dropdown-body">
 
                             <ul className="menu-list is-size-5-desktop has-text-weight-normal">
                                 <li>
@@ -74,12 +80,12 @@ class DropDownMenu extends Component {
 
                                         }}
                                     >
-                                        All
+                                        no filters
                                     </a>
                                 </li>
                                 {genres.map( genre => {
 
-                                return <li>
+                                return <li key={genre.id}>
                                         <a 
                                             data={genre.name}
                                             onClick={e => {
@@ -104,4 +110,4 @@ class DropDownMenu extends Component {
     }
 }
 
-export default withRouter(DropDownMenu)
+export default withRouter(FilterGenres)

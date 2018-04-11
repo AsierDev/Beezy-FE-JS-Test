@@ -15,10 +15,6 @@ module.exports = {
         let book = new Book(bookId,title, genre, price)
         
         this.bookshelf.push(book)
-
-
-        console.log(this.bookshelf)
-
     },
 
     deleteBook(id) {

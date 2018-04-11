@@ -1,7 +1,11 @@
-.dropdown, .dropdown button, .dropdown trigger  {
+.dropdown, .dropdown trigger  {
   background: transparent;
   border-color: transparent;
   align-self: center;
+}
+
+.dropdown button {
+  background: #4A4A4A;
 }
 
 .dropdownTitle {

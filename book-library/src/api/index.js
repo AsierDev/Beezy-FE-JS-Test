@@ -18,8 +18,7 @@ module.exports = {
     retrieveOneBook(id) {
         return books.retrieveOneBook(id)
     },
-
-    
+  
     updateBook(id, title, genre, price) {
         return books.editBook(id, title, genre, price)
     },
@@ -30,6 +29,18 @@ module.exports = {
 
     retrieveGenres() {
         return genres.listOfGenres
+    },
+
+    createGenre(name) {
+        return genres.addGenre(name)
+    },
+
+    updateGenre(id, name) {
+        return genres.editGenre(id, name)
+    },
+
+    removeGenre(id) {
+        return genres.deleteGenre(id)
     }
 
 

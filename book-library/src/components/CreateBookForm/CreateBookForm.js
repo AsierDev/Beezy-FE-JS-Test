@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { withRouter } from "react-router-dom"
 import Button from './../Button/Button'
 import './CreateBookForm.css'
-import booksApi from './../api/index'
+import booksApi from './../../api/index'
 
 
 
@@ -12,10 +12,18 @@ class CreateBookForm extends Component {
         super()
 
         this.state = {
+            genres: [],
             title: '',
             genre: '',
             price: ''
         }
+    }
+
+    componentDidMount() {
+        const data = booksApi.retrieveGenres()
+        this.setState({
+            genres:data
+        })
     }
 
 
@@ -23,8 +31,8 @@ class CreateBookForm extends Component {
         const {title, genre, price} = this.state
 
         console.log(title, genre, price)
-
-        booksApi.createBook(title, genre, price)
+        
+        booksApi.createBook(title.trim().toLowerCase(), genre.trim(), price.trim().toLowerCase())
         
         this.setState({ 
             title: '',
@@ -44,7 +52,7 @@ class CreateBookForm extends Component {
     handleGenre = _genre => {
         this.setState({
             genre: _genre
-        })
+        }) 
     }
 
     handlePrice = _price => {
@@ -55,6 +63,9 @@ class CreateBookForm extends Component {
 
 
     render() {
+
+        const {genres} = this.state
+
         return (
 
             <form 
@@ -82,19 +93,21 @@ class CreateBookForm extends Component {
                         </div>
                     </div>
 
-                    <div className="field column is-3">
+                    <div className="control column is-3 is-centered">
                         <label className="label has-text-centered is-size-5" >
                             Genre
                         </label>
-
-                        <div className="control ">
-                            <input
-                                onChange={e => this.handleGenre(e.target.value)} 
-                                className="input" 
-                                type="text" 
-                                placeholder="Define the genre"
-                                required 
-                            />
+                        <div className="input input-select">
+                        <div className="select">
+                            <select onChange={e => this.handleGenre(e.target.value)}>
+                                    <option selected="true" disabled="disabled"> Choose Genre</option>
+                                    { genres.map( genre => {
+                                        
+                                        return <option key={genre.id}>{genre.name}</option>
+                                    })}
+                                
+                            </select>
+                        </div>
                         </div>
                     </div>
 

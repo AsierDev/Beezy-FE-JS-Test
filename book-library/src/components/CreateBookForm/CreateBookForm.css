@@ -3,11 +3,17 @@
     padding: 5rem 0
 }
 
-.create-book input {
+.create-book .input {
 
     border-radius: 10px
 }
 
 .columns-container {
     margin: 0 5%
+}
+
+.select select, .select{
+    width: 100%;
+    background: transparent;
+    border: none;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Button from './../Button/Button'
-
+import booksApi from './../../api/index'
 import './CreateGenreForm.css'
 
 
@@ -16,11 +16,15 @@ class CreateGenreForm extends Component {
 
 
     handleSubmit = () => {
-        console.log(this.state.genre.trim())
+        const { genre } = this.state
+
+        booksApi.createGenre(genre.trim().toLowerCase())
+
         this.setState({ genre: '' })
     }
 
     handleInput = _genre => {
+
         this.setState({
             genre: _genre
         })
@@ -28,7 +32,6 @@ class CreateGenreForm extends Component {
 
 
     render() {
-
 
         return (
 
@@ -60,7 +63,6 @@ class CreateGenreForm extends Component {
                 </div>
 
                 <Button />
-                
 
             </form>
         )

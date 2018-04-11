@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import DropDownMenu from '../NavBar/DropDownMenu/DropDownMenu'
+import FilterGenres from '../FilterGenres/FilterGenres'
 import UpdateBook from './../UpdateBook/UpdateBook'
 
-import booksApi from './../api/index'
+import booksApi from './../../api/index'
 
 import './ListBooks.css'
 
@@ -58,8 +58,8 @@ class ListBooks extends Component {
         return (
 
             <section className="container is-fluid list-books">
-                <div className="columns is-centered">
-                    <DropDownMenu  
+                <div className="columns is-centered is-mobile filter-area">
+                    <FilterGenres  
                         onHandleClick={this.filterByGenre}
                         onNoFilters={this.getBooks}
                     />
