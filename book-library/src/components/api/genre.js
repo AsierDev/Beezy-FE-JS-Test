@@ -1,11 +1,6 @@
-const genre = {
+module.exports= {
 
-    genre: class Genre {
-        constructor(name) {
-            this.name = name
-        }
-    },
-
+   
 
 
 

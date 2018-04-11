@@ -2,22 +2,24 @@ const books = require('./books')
 
 module.exports = {
 
-    retrieveBooks() {
-        
+    retrieveBooks() { 
         return books.bookshelf
-
     },
 
     createBook(title, genre, price) {
         return books.addBook(title, genre, price)
     },
 
-    removeBook(title) {
-        return books.deleteBook(title)
+    removeBook(id) {
+        return books.deleteBook(id)
     },
 
-    updateBook(title, genre, price) {
-        return books.editBook(title, genre, price)
+    retrieveOneBook(id) {
+        return books.retrieveOneBook(id)
+    },
+
+    updateBook(id, title, genre, price) {
+        return books.editBook(id, title, genre, price)
     }
 
 

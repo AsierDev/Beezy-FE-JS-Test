@@ -1,33 +1,44 @@
 module.exports = {
 
     addBook(title, genre, price) {
+        
+        let bookId = 'id' + (new Date()).getTime();
 
-        function Book(title, genre, price) {
+        function Book(id, title, genre, price) {
 
-            this.title = title,
-            this.genre = genre,
-            this.price = price
+            this.id = id;
+            this.title = title;
+            this.genre = genre;
+            this.price = price;
         }
 
-        let book = new Book(title, genre, price)
-
+        let book = new Book(bookId,title, genre, price)
+        
         this.bookshelf.push(book)
+
 
         console.log(this.bookshelf)
 
     },
 
-    deleteBook(title) {
+    deleteBook(id) {
         this.bookshelf = this.bookshelf.filter(function (book) {
-            return book.title !== title
+            return book.id !== id
         })
 
     },
 
-    editBook(title, genre, price) {
+    retrieveOneBook(id) {
+        const book = this.bookshelf.filter(function (book) {
+            return book.id === id
+        })
+        return book
+    },
+
+    editBook(id, title, genre, price) {
         let library = this.bookshelf
         library.forEach(function (item, index) {
-            if (item.title === title) {
+            if (item.id === id) {
                 library[index].title = title
                 library[index].genre = genre
                 library[index].price = price
@@ -39,16 +50,19 @@ module.exports = {
 
     bookshelf: [
         {
+            id: "101",
             title: "Clean Code",
             genre: "Development",
             price: "23"
         },
         {
+            id: "102",
             title: "Cosmos",
             genre: "Science",
             price: "27"
         },
         {
+            id: "103",
             title: "Lord Of The Rings",
             genre: "Fantasy",
             price: "18"

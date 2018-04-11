@@ -14,7 +14,8 @@ class ListBooks extends Component {
 
         this.state = {
             books: [],
-            modal: false
+            modal: false,
+            book: []
         }
     }
 
@@ -30,26 +31,19 @@ class ListBooks extends Component {
         })
     }
     
-    handleDelete = title => {
-        booksApi.removeBook(title)
+    handleDelete = id => {
+        booksApi.removeBook(id)
         this.getBooks()
     }
 
-    handleEdit = title => {
-        
-        console.log(this.props)
-        /* booksApi.updateBook(title, "nueva", "1000")
-        this.getBooks() */
-    }
+    handleModal = id => {
 
-    handleModal() {
-
+       const data = booksApi.retrieveOneBook(id)
         this.setState({
+            book: data,
             modal: !this.state.modal
         })
     }
-
-
 
     render() {
 
@@ -64,7 +58,7 @@ class ListBooks extends Component {
 
                         books.map(book => {
 
-                            return <div className="column is-one-quarter-desktop" key={book.title}>
+                            return <div className="column is-one-quarter-desktop" key={book.id}>
                                 <div className="card">
                                     <div className="card-content">
                                         <p className="title">
@@ -81,7 +75,7 @@ class ListBooks extends Component {
                                         <p className="card-footer-item">
                                             <span onClick={e => {
                                                 e.preventDefault()
-                                                this.handleModal(book.title)
+                                                this.handleModal(book.id)
                                             }}>
                                                 <a>Edit &nbsp; <i className="fa fa-edit"></i> </a>
                                             </span>
@@ -90,7 +84,7 @@ class ListBooks extends Component {
                                         <p className="card-footer-item">
                                             <span onClick={e => {
                                                 e.preventDefault()
-                                                this.handleDelete(book.title)
+                                                this.handleDelete(book.id)
                                             }}>
                                                 <a>Delete &nbsp; <i className="fa fa-trash"></i> </a>
                                             </span>
@@ -108,29 +102,26 @@ class ListBooks extends Component {
 
                                 <header className="modal-card-head">
                                     <p className="modal-card-title">Edit Book </p>
-
-                                </header>
-
-                                    <div className="modal-card-body">
-                                        <UpdateBook/> 
-                                        
-
-                                    </div>
-
-                                    <footer className="modal-card-foot">
-                                        <button className="button is-success">Enviar</button>
-
-                                        <button
-                                            onClick={e => {
+                                    <button 
+                                        className="delete" 
+                                        aria-label="close"
+                                        onClick={e => {
                                                 e.preventDefault()
                                                 this.handleModal()
                                             }}
-                                            className="button"
-                                        >Cancel</button>
-                                    </footer>
+                                    >
+                                    </button>
 
-                                
+                                </header>
 
+                                <div className="modal-card-body">
+                                    <UpdateBook 
+                                        onHandleModal={this.state.book}
+                                        onSubmit= {this.handleModal} 
+                                    /> 
+                                    
+
+                                </div>
                             </div>
                         </div>
                         : null }
