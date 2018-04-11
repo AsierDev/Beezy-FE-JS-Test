@@ -40,6 +40,8 @@ class CreateBookForm extends Component {
             price: ''
         })
 
+        alert('libro creado')
+
         this.props.history.push('/')
     }
 

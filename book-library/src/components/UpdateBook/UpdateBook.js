@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { withRouter } from "react-router-dom"
 import Button from './../Button/Button'
 import './UpdateBook.css'
 import booksApi from './../../api/index'
@@ -14,10 +13,16 @@ class UpdateBook extends Component {
             title: '',
             genre: '',
             price: '',
+            genres: []
         }
     }
 
     componentDidMount() {
+        this.getBook()
+        this.getGenres()
+    }
+
+    getBook = () => {
         const data = this.props.onHandleModal
         this.setState({
             book: data[0],
@@ -27,11 +32,14 @@ class UpdateBook extends Component {
         })
     }
 
+    getGenres = () => {
+        const data = booksApi.retrieveGenres()
+        this.setState({ genres: data })
+    }
+
     handleSubmit = () => {
         const { title, genre, price } = this.state
         const { id } = this.state.book
-
-        console.log(id, title, genre, price)
 
         booksApi.updateBook(id, title, genre, price)
 
@@ -64,8 +72,8 @@ class UpdateBook extends Component {
 
     render() {
 
-        const { book } = this.state
-
+        const { book, genres } = this.state
+        console.log(genres)
         return (
 
             <form
@@ -95,21 +103,20 @@ class UpdateBook extends Component {
                         </div>
                     </div>
 
-                    <div className="field ">
+                    <div className="control ">
                         <label className="label has-text-centered is-size-5" >
                             Genre
                         </label>
-
-                        <div className="control ">
-                            <input
-                                onChange={e => this.handleGenre(e.target.value)}
-                                className="input has-text-centered"
-                                type="text"
-                                placeholder="Define the genre"
-                                key={book.genre}
-                                defaultValue={book.genre}
-                                required
-                            />
+                        <div className="input input-select">
+                        <div className="select">
+                            <select onChange={e => this.handleGenre(e.target.value)}>
+                                    <option selected="true" disabled="disabled"> Choose Genre</option>
+                                    { genres.map( genre => {
+                                        return <option key={genre.id}>{genre.name}</option>
+                                    })}
+                                
+                            </select>
+                        </div>
                         </div>
                     </div>
 
@@ -138,4 +145,4 @@ class UpdateBook extends Component {
     }
 }
 
-export default withRouter(UpdateBook)
+export default UpdateBook

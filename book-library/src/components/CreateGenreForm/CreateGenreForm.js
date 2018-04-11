@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { withRouter } from "react-router-dom"
 import Button from './../Button/Button'
 import booksApi from './../../api/index'
 import './CreateGenreForm.css'
@@ -21,6 +22,10 @@ class CreateGenreForm extends Component {
         booksApi.createGenre(genre.trim().toLowerCase())
 
         this.setState({ genre: '' })
+
+        alert("genre created")
+
+        this.props.history.push('/')
     }
 
     handleInput = _genre => {
@@ -69,4 +74,4 @@ class CreateGenreForm extends Component {
     }
 }
 
-export default CreateGenreForm
+export default withRouter(CreateGenreForm)
