@@ -1,4 +1,5 @@
 const books = require('./books')
+const genres = require('./genres')
 
 module.exports = {
 
@@ -18,8 +19,17 @@ module.exports = {
         return books.retrieveOneBook(id)
     },
 
+    
     updateBook(id, title, genre, price) {
         return books.editBook(id, title, genre, price)
+    },
+    
+    listBooksByGenre(genre) {
+        return books.listBooksByGenre(genre)
+    },
+
+    retrieveGenres() {
+        return genres.listOfGenres
     }
 
 

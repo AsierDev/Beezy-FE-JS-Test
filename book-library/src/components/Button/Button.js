@@ -8,8 +8,8 @@ class Button extends Component {
         return (
             <div className="control columns is-centered button-create is-mobile">
                 <button className="button is-primary is-medium">
-                    Create
-                    </button>
+                    Send
+                </button>
             </div>
         )
     }

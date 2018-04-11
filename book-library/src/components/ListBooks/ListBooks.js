@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import DropDownMenu from '../NavBar/DropDownMenu/DropDownMenu'
 import UpdateBook from './../UpdateBook/UpdateBook'
 
 import booksApi from './../api/index'
@@ -23,7 +23,13 @@ class ListBooks extends Component {
        this.getBooks()
     }
 
-    
+   filterByGenre = genre => {
+       const data = booksApi.listBooksByGenre(genre)
+       this.setState({
+           books: data
+       })
+   }
+
     getBooks = () => {
         const data = booksApi.retrieveBooks()
         this.setState({
@@ -52,8 +58,13 @@ class ListBooks extends Component {
         return (
 
             <section className="container is-fluid list-books">
+                <div className="columns is-centered">
+                    <DropDownMenu  
+                        onHandleClick={this.filterByGenre}
+                        onNoFilters={this.getBooks}
+                    />
+                </div>    
                 <div className="columns is-centered is-multiline">
-
                     {books.length > 0 ?
 
                         books.map(book => {

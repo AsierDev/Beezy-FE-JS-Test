@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import DropDownMenu from './DropDownMenu/DropDownMenu'
-
 import { withRouter } from "react-router-dom"
 
 
@@ -82,9 +80,6 @@ class NavBar extends Component {
                             >
                                 Create Genre
                             </a>
-
-                            <DropDownMenu className="navbar-item has-text-white" />
-
 
                         </div>
                     </div>

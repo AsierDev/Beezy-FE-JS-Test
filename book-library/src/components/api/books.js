@@ -48,23 +48,30 @@ module.exports = {
         return this.bookshelf
     },
 
+    listBooksByGenre(genre) {
+        const list = this.bookshelf.filter(function (book) {
+            return book.genre === genre
+        })
+        return list
+    },
+
     bookshelf: [
         {
             id: "101",
             title: "Clean Code",
-            genre: "Development",
+            genre: "development",
             price: "23"
         },
         {
             id: "102",
             title: "Cosmos",
-            genre: "Science",
+            genre: "science",
             price: "27"
         },
         {
             id: "103",
             title: "Lord Of The Rings",
-            genre: "Fantasy",
+            genre: "fantasy",
             price: "18"
         }
     ]
