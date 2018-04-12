@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Button from './../Button/Button'
 import './UpdateBook.css'
-import booksApi from './../../api/index'
+import booksApi from './../../data'
+import swal from 'sweetalert2'
 
 class UpdateBook extends Component {
 
@@ -24,6 +25,7 @@ class UpdateBook extends Component {
 
     getBook = () => {
         const data = this.props.onHandleModal
+
         this.setState({
             book: data[0],
             title: data[0].title,
@@ -34,10 +36,11 @@ class UpdateBook extends Component {
 
     getGenres = () => {
         const data = booksApi.retrieveGenres()
+
         this.setState({ genres: data })
     }
 
-    handleSubmit = () => {
+    handleSubmit = e => {
         const { title, genre, price } = this.state
         const { id } = this.state.book
 
@@ -48,22 +51,36 @@ class UpdateBook extends Component {
             genre: '',
             price: ''
         })
-        this.props.onSubmit()
+
+        this.props.onSubmit(e)
+
+        swal({
+            title: 'Book Updated',
+            showConfirmButton: true,
+            timer: 1000
+        })
+
     }
 
-    handleTitle = _title => {
+    handleTitle = e => {
+        const _title = e.target.value
+
         this.setState({
             title: _title
         })
     }
 
-    handleGenre = _genre => {
+    handleGenre = e => {
+        const _genre = e.target.value
+
         this.setState({
             genre: _genre
         })
     }
 
-    handlePrice = _price => {
+    handlePrice = e => {
+        const _price = e.target.value
+
         this.setState({
             price: _price
         })
@@ -73,15 +90,13 @@ class UpdateBook extends Component {
     render() {
 
         const { book, genres } = this.state
-        console.log(genres)
+
         return (
 
             <form
-                onSubmit={e => {
-                    e.preventDefault()
-                    this.handleSubmit()
-                }}
-                className="create-book">
+                onSubmit={e => this.handleSubmit(e)}
+                className="create-book"
+            >
 
                 <div className="is-centered columns-container" >
 
@@ -92,7 +107,7 @@ class UpdateBook extends Component {
 
                         <div className="control">
                             <input
-                                onChange={e => this.handleTitle(e.target.value)}
+                                onChange={e => this.handleTitle(e)}
                                 className="input has-text-centered"
                                 type="text"
                                 placeholder="Write a title"
@@ -104,29 +119,36 @@ class UpdateBook extends Component {
                     </div>
 
                     <div className="control ">
+
                         <label className="label has-text-centered is-size-5" >
                             Genre
                         </label>
+
                         <div className="input input-select">
-                        <div className="select">
-                            <select onChange={e => this.handleGenre(e.target.value)}>
+                            <div className="select">
+                                <select onChange={e => this.handleGenre(e)}>
                                     <option selected="true" disabled="disabled"> Choose Genre</option>
-                                    { genres.map( genre => {
-                                        return <option key={genre.id}>{genre.name}</option>
-                                    })}
-                                
-                            </select>
+                                    { 
+                                        genres.map( genre => {
+                                            return <option key={genre.id}>{genre.name}</option>
+                                        })
+                                    }
+                                    
+                                </select>
+                            </div>
                         </div>
-                        </div>
+
                     </div>
 
-                    <div className="field ">
+                    <div className="field">
+
                         <label className="label has-text-centered is-size-5">
                             Price
                         </label>
+
                         <div className="control">
                             <input
-                                onChange={e => this.handlePrice(e.target.value)}
+                                onChange={e => this.handlePrice(e)}
                                 className="input has-text-centered"
                                 type="number"
                                 placeholder="How much?"
@@ -135,10 +157,12 @@ class UpdateBook extends Component {
                                 required
                             />
                         </div>
+
                     </div>
 
                 </div>
-                    <Button />
+                
+                <Button />
 
             </form>
         )
