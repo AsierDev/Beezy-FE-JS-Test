@@ -28,7 +28,7 @@ class FilterGenres extends Component {
         e.preventDefault()
         const _genre = e.target.getAttribute('data')
 
-        this.props.onHandleClick(_genre)
+        this.props.onHandleClick(_genre) 
 
         this.setState({
             genre: _genre
@@ -37,7 +37,7 @@ class FilterGenres extends Component {
 
     noFilters = e => {
         e.preventDefault()
-        this.props.onNoFilters()
+        this.props.onNoFilters() 
 
         this.setState({
             genre: "no filters"

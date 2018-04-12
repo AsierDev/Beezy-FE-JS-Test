@@ -31,7 +31,7 @@ class CreateGenreForm extends Component {
             timer: 1500
         })
 
-        this.props.history.push('/')
+        this.props.history.push('/') 
     }
 
     handleInput = e => {

@@ -16,7 +16,7 @@ class NavBar extends Component {
 
     handleClick = value => {
 
-        this.props.history.push(`/${value}`)
+        this.props.history.push(`/${value}`) 
 
     }
 

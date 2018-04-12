@@ -24,7 +24,7 @@ class UpdateBook extends Component {
     }
 
     getBook = () => {
-        const data = this.props.onHandleModal
+        const data = this.props.onHandleModal 
 
         this.setState({
             book: data[0],
@@ -52,7 +52,7 @@ class UpdateBook extends Component {
             price: ''
         })
 
-        this.props.onSubmit(e)
+        this.props.onSubmit(e) 
 
         swal({
             title: 'Book Updated',
